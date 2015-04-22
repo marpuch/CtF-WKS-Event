@@ -1,4 +1,4 @@
-package victim;
+package victim.controlers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
