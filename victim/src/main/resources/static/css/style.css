@@ -1396,6 +1396,30 @@ p.text span{
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
 	}
+input[type="password"]{
+	border:none;
+	outline:none;
+	width:100%;
+	background:#E5E6E6;
+	padding:10px 10px 10px 10px;
+	font-size:15px;
+	 border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding:10px 10px 10px 10px;
+	background:#EDEDED;
+	width:50%;
+	font-size:15px;
+	outline:none;
+	border: 1px solid #C4C4C4;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	}
 .search input[type="submit"]{
 	background:#36BC98;
 	color:#fff;
