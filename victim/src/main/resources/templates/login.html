@@ -42,11 +42,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div th:include="header :: header"></div>
 <div class="container">
 <div class="comments">
-	<form>
+	<form action="/login" th:object="${bean}" method="POST">
 		<br/><br/>
-		<input type="text" placeholder="Name" required=" " />
+		<input type="text" placeholder="Name" th:field="*{name}" />
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Insert name</span>
 		<br/><br/>
-		<input type="password" placeholder="Password" required=" " />
+		<input type="password" placeholder="Password" th:field="*{password}" />
+		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Insert password</span>
 		<input type="submit" value="Log in" />
 	</form>
 </div>
