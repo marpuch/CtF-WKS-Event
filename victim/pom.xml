@@ -29,7 +29,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-		<!-- <dependency>
+		<!-- 
+		Probably the first serious security error here. Turning off
+		a specialized library to handle security issues and reinventing
+		the wheel is like asking for trouble.
+		
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency> -->
