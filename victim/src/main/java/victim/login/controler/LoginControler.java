@@ -2,6 +2,7 @@ package victim.login.controler;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import victim.login.bean.LoginBean;
+import victim.login.bean.UserBean;
+import victim.login.logic.LoginLogic;
 
 @Controller
 public class LoginControler {
 
-	@ModelAttribute("loginbean")
-	public LoginBean getLoginBean() {
-		return new LoginBean();
-	}
-
+	@Autowired
+	private LoginLogic loginLogic;
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(Model model) {
 		model.addAttribute("bean", new LoginBean());
@@ -30,7 +31,16 @@ public class LoginControler {
 		if (bindingResult.hasErrors()) {
 			return "login";
 		}
+		UserBean user = loginLogic.login(bean, bindingResult);
+		if (user == null) {
+			return "login";
+		}
 		return "redirect:/index.html";
 	}
 
+	// spring setter
+	
+	public void setLoginLogic(LoginLogic loginLogic) {
+		this.loginLogic = loginLogic;
+	}
 }

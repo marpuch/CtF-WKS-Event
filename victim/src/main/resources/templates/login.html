@@ -43,12 +43,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="container">
 <div class="comments">
 	<form action="/login" th:object="${bean}" method="POST">
-		<br/><br/>
+		<br/>
+		<div class="alert alert-danger" th:if="${#fields.hasErrors('global')}">
+		    <p th:each="err : ${#fields.errors('global')}" th:text="${err}"></p>    
+		</div>
+		<br/>
 		<input type="text" placeholder="Name" th:field="*{name}" />
-		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Insert name</span>
+		<span class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Insert name</span>
 		<br/><br/>
 		<input type="password" placeholder="Password" th:field="*{password}" />
-		<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Insert password</span>
+		<span class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Insert password</span>
 		<input type="submit" value="Log in" />
 	</form>
 </div>
