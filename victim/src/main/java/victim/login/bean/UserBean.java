@@ -3,6 +3,8 @@ package victim.login.bean;
 public class UserBean {
 	private String login;
 	private String name;
+	// Yet another security bug. Passwords should not be held in memory in plain text.
+	private String password;
 
 	public String getLogin() {
 		return login;
@@ -18,6 +20,14 @@ public class UserBean {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

@@ -1,23 +1,17 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
-<head>
+<head th:replace="head :: head">
 		<title>LOGO Homepage</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,300,300italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,300,300italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
 		<!-- js -->
 		<script src="js/jquery.min.js"></script>
 		<!-- //js -->
 		<!-- for-mobile-apps -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="Flatter Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -43,45 +37,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner">
 	<div class="container">
 		<div class="navi">
-			<div class="head-logo">
-				<div class="logo">
-					<a href="index.html">LOGO</a>
-				</div>
-				<div class="head-logo-right-icons">
-					<div class="head-logo-right">
-							<div class="fig">
-							</div>
-							<ul>
-								<li><a href="https://www.google.pl/maps/place/Pahrump,+Nevada,+Stany+Zjednoczone/@36.2055589,-116.061226,11z/data=!3m1!4b1!4m2!3m1!1s0x80c6363f86a4ad87:0xcf437da0f54b779f?hl=pl" class="dot"> </a></li>
-								<li><a href="mailto:logo@logo.com" class="mes"> </a></li>
-								<li><a href="mailto:logo@logo.com">HIRE ME</a></li>
-								<div class="clearfix"> </div>
-							</ul>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="top-nav">
-				<span class="menu"><img src="images/menu.png" alt="" /></span>
-					<ul class="nav1">
-						<li><a href="index.html" class="active">HOME</a></li>
-						<li><a href="portfolio.html">PORTFOLIO</a></li>
-						<li><a href="blog.html">BLOG</a></li>
-						<li><a href="login.html">LOGIN</a></li>
-					</ul>
-					<script> 
-							   $( "span.menu" ).click(function() {
-								 $( "ul.nav1" ).slideToggle( 300, function() {
-								 // Animation complete.
-								  });
-								 });
-							
-					</script>
-			</div>
+			<div th:include="header :: header"></div>
+			
 			<div class="clearfix"> </div>
 			<div class="banner-info">
-				<h3>WE DESIGN <span>FLAT</span> <span>UI</span> & <span>WEB</span></h3>
-				<p class="para">Yes, we can.</span></p>
+				<h3>WE DESIGN <span>FLAT</span> <span>UI</span> &amp; <span>WEB</span></h3>
+				<p class="para">Yes, we can.</p>
 			</div>
 			<div class="banner-icons">
 				<ul>
@@ -134,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</div>
 							<p>“LOGO has changed our attitude to web page design in<br/>
 							an elemental way.”<br/>
-							The New World</span></p>
+							The New World</p>
 							<ul>
 								<li>@Twitter</li>
 								<li>Posted 20.01.2015</li>
@@ -161,7 +122,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<a href="#"><span> </span></a>
 							</div>
 							<p>“A decade worth thinking.<br/>All in two months.”<br/>
-							American Hero</span></p>
+							American Hero</p>
 							<ul>
 								<li>@Dribbble</li>
 								<li>Posted 01.03.2015</li>
@@ -177,7 +138,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div id="about" class="about">
 	<div class="container">
 		<h4>ABOUT US</h4>
-		<h2>WE DESIGN ADVANCED<span>UI & WEB</span></h2>
+		<h2>WE DESIGN ADVANCED<span>UI &amp; WEB</span></h2>
 		<p>This page is in a very early development stage.<br/>The main reason
 		it's here is to gather usability input from the users as fast as
 		possible.<br/>Be aware that:<br/>
@@ -198,6 +159,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h4>OUR WORK</h4>
 		<script src="jquery-1.11.0.min.js"></script>
 	<script>
+	//<![CDATA[
 		$(document).ready(function () {
 		    size_li = $("#myList li").size();
 		    x=1;
@@ -211,6 +173,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        $('#myList li').not(':lt('+x+')').hide();
 		    });
 		});
+		//]]>
 	</script>
 		<div class="load_more">	
 			<ul id="myList">

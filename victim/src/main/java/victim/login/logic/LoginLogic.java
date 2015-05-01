@@ -53,6 +53,7 @@ public class LoginLogic {
 		UserBean bean = new UserBean();
 		bean.setLogin(userData.getLogin());
 		bean.setName(userData.getFullName());
+		bean.setPassword(userData.getPassword());
 		return bean;
 	}
 	

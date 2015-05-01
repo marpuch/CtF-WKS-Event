@@ -1,5 +1,6 @@
 package victim.login.controler;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,8 @@ public class LoginControler {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(@Valid @ModelAttribute("bean") LoginBean bean, BindingResult bindingResult) {
+	public String loginPost(@Valid @ModelAttribute("bean") LoginBean bean,
+			BindingResult bindingResult, HttpSession session) {
 		if (bindingResult.hasErrors()) {
 			return "login";
 		}
@@ -35,7 +37,9 @@ public class LoginControler {
 		if (user == null) {
 			return "login";
 		}
-		return "redirect:/index.html";
+		// A nice fat security bug (no session rotation after login).
+		session.setAttribute("user", user);
+		return "index";
 	}
 
 	// spring setter

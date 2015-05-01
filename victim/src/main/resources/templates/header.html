@@ -35,10 +35,10 @@
 <body>
 
 <!-- banner -->
-<span th:fragment="header">
-	<div class="banner1">
+<div class="banner1">
 	<div class="container">
 		<div class="navi">
+		<span th:fragment="header">
 			<div class="head-logo">
 				<div class="logo">
 					<a href="index.html">LOGO</a>
@@ -62,7 +62,9 @@
 					<ul class="nav1">
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="portfolio.html">PORTFOLIO</a></li>
-						<li><a href="blog.html">BLOG</a></li>
+						<li th:if="${session.user != null}"><a href="login" th:text="${session.user.name}">Bob the Builder</a></li>
+						<li th:if="${session.user == null}"><a href="login">LOGIN</a></li>
+						<li th:if="${session.user != null}"><a href="logout">LOGOUT</a></li>
 					</ul>
 					<script> 
 							   $( "span.menu" ).click(function() {
@@ -74,10 +76,10 @@
 					</script>
 			</div>
 			<div class="clearfix"> </div>
+		</span>
 		</div>
 	</div>
-	</div>
-	</span>
+</div>
 <!-- //banner -->
 </body>
 </html>

@@ -39,7 +39,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 	
 <body>
-<div th:include="header :: header"></div>
+<div class="banner1">
+	<div class="container">
+		<div class="navi">
+			<div th:include="header :: header"></div>
+		</div>
+	</div>
+</div>
 <div class="container">
 <div class="comments">
 	<form action="/login" th:object="${bean}" method="POST">
