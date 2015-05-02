@@ -1,4 +1,4 @@
-package victim.logout.controler;
+package victim.logout.controller;
 
 import javax.servlet.http.HttpSession;
 

@@ -1,4 +1,4 @@
-package victim.login.controler;
+package victim.login.controller;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,7 +16,7 @@ import victim.login.bean.UserBean;
 import victim.login.logic.LoginLogic;
 
 @Controller
-public class LoginControler {
+public class LoginController {
 
 	@Autowired
 	private LoginLogic loginLogic;
@@ -24,7 +24,8 @@ public class LoginControler {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(Model model) {
 		model.addAttribute("bean", new LoginBean());
-		return "login";
+		throw new RuntimeException();
+//		return "login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)

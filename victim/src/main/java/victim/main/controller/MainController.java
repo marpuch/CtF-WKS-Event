@@ -1,10 +1,10 @@
-package victim.main.controler;
+package victim.main.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MainControler {
+public class MainController {
 
 	@RequestMapping("/index")
     public String greeting() {
