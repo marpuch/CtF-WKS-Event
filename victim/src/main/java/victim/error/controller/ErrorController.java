@@ -31,6 +31,7 @@ public class ErrorController {
         ModelAndView mav = new ModelAndView();
         Object showStacktrace = session.getAttribute("showStacktrace");
         if (showStacktrace != null) {
+        	// Bad idea - don't do it at home!
         	mav.addObject("stacktrace", exception2stacktrace(e));
         }
         

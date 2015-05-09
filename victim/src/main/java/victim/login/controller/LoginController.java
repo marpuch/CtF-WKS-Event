@@ -24,8 +24,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(Model model) {
 		model.addAttribute("bean", new LoginBean());
-		throw new RuntimeException();
-//		return "login";
+		return "login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
