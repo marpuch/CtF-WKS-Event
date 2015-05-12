@@ -93,12 +93,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 					<ul id="filters" class="clearfix">
-							<li><span class="filter active" data-filter="app card icon web">All</span></li>
-							<li><span class="filter" data-filter="app">Web</span></li>
-							<li><span class="filter" data-filter="card">Mobile</span></li>
-							<li><span class="filter" data-filter="icon">Design</span></li>
-							<li><span class="filter" data-filter="web">Typeography</span></li>
+							<li><span class="filter active" data-filter="app card icon web" onclick="changeText('all')">All</span></li>
+							<li><span class="filter" data-filter="app" onclick="changeText('app')">Web</span></li>
+							<li><span class="filter" data-filter="card" onclick="changeText('card')">Mobile</span></li>
+							<li><span class="filter" data-filter="icon" onclick="changeText('icon')">Design</span></li>
+							<li><span class="filter" data-filter="web" onclick="changeText('web')">Typeography</span></li>
 					</ul>
+
+					<div class="container">
+						<p id="commentId" align="center">
+							This page is in a very early development stage.
+						</p>
+					</div>
+					
+					<script type="text/javascript">
+						function changeText(mode) {
+							var fieldNameElement = document.getElementById('commentId');
+							fieldNameElement.textContent = mode;
+						}
+					</script>
 		
 					<div id="portfoliolist">
 						<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">

@@ -6,3 +6,9 @@ CREATE TABLE vict_users (
   pass_reminder VARCHAR(1000) NULL,
   PRIMARY KEY (login))
 ;
+
+CREATE TABLE portfolio (
+  mode VARCHAR(10) NOT NULL,
+  text VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (mode))
+;

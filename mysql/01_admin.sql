@@ -23,5 +23,12 @@ CREATE TABLE `victim_resource`.`public_items` (
   PRIMARY KEY (`id`))
 ENGINE = MyISAM;
 
+CREATE TABLE `victim_resource`.`portfolio` (
+  `mode` VARCHAR(10) NOT NULL,
+  `text` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`mode`))
+ENGINE = MyISAM;
+
 grant select on public_items to 'victim'@'localhost';
 grant select on vict_users to 'victim'@'localhost';
+grant select on portfolio to 'victim'@'localhost';
