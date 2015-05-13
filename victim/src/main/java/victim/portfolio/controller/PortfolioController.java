@@ -15,7 +15,7 @@ public class PortfolioController {
 	@Autowired
 	private PortfolioDao portfolioDao;
 	
-	@RequestMapping("/portfolio")
+	@RequestMapping("/portfolioJson")
 	public @ResponseBody PortfolioBean getPortfolio(@RequestParam(value="mode", required=false, defaultValue="all")String mode) {
 		return new PortfolioBean(portfolioDao.find(mode));
 	}

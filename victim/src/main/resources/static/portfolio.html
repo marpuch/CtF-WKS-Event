@@ -102,14 +102,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					<div class="container">
 						<p id="commentId" align="center">
-							This page is in a very early development stage.
+							All we have ever done
 						</p>
 					</div>
 					
 					<script type="text/javascript">
-						function changeText(mode) {
+/* 						function changeText(mode) {
 							var fieldNameElement = document.getElementById('commentId');
 							fieldNameElement.textContent = mode;
+						} */
+						/* function changeText(mode) {
+							jQuery(function($) {
+								$("#commentId").text(mode);
+							});
+						} */
+						function changeText(modeIn) {
+							jQuery(function($) {
+								$.post("portfolioJson",
+									    {
+									        mode: modeIn
+									    },
+									    function(result){
+									    	var fieldNameElement = document.getElementById('commentId');
+											fieldNameElement.textContent = result.result[0];
+									    });
+							});
 						}
 					</script>
 		
