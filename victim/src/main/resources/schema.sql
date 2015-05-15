@@ -12,3 +12,9 @@ CREATE TABLE portfolio (
   text VARCHAR(1000) NOT NULL,
   PRIMARY KEY (mode))
 ;
+
+CREATE TABLE private_data (
+  login VARCHAR(100) NOT NULL,
+  text VARCHAR(4000) NOT NULL,
+  PRIMARY KEY (login))
+;
