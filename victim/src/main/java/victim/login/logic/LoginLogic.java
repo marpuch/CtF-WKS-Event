@@ -40,20 +40,20 @@ public class LoginLogic {
 	private UserBean handleNoEncryption(LoginBean bean, UserData userData,
 			BindingResult bindingResult) {
 		String base64Password = userData.getPassword();
-		byte[] password = Base64.getDecoder().decode(base64Password); // TODO check for encoding problems
+		byte[] password = Base64.getDecoder().decode(base64Password);
 		if (Arrays.equals(password, bean.getPassword().getBytes())) {
-			return data2bean(userData);
+			return data2bean(userData, bean.getPassword());
 		} else {
 			bindingResult.addError(new ObjectError("other.wrongPassword", "Wrong password"));
 			return null;
 		}
 	}
 
-	private UserBean data2bean(UserData userData) {
+	private UserBean data2bean(UserData userData, String password) {
 		UserBean bean = new UserBean();
 		bean.setLogin(userData.getLogin());
 		bean.setName(userData.getFullName());
-		bean.setPassword(userData.getPassword());
+		bean.setPassword(password);
 		return bean;
 	}
 	

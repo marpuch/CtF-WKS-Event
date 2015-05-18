@@ -13,3 +13,6 @@ insert into portfolio (mode, text) values (
   'icon', 'To express all important things');
 insert into portfolio (mode, text) values (
   'web', 'Gateway to your webpage');
+
+insert into private_data (login, text) values (
+  'bob', '7adee67e769a76cb5260fcf4f2fc2ea3c70c42d59c5b8d7526faac52173eab9804a8bca985ce75e9b859ed88f04b9f05');
