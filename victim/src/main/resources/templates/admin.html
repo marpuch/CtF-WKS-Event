@@ -55,8 +55,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<p>Your stacktrace listings are currently: <span th:if="${bean.listStacktrace}">ON</span><span th:if="${!bean.listStacktrace}">OFF</span></p>
 		<input type="submit" value="Switch" />
 	</form>
+// TODO: Only for testing purposes
 	<form action="/adminTest" method="POST">
 		<input type="submit" value="Throw exception" />
+	</form>
+	<p>Upload server configuration as defined in: <a href="/xml/settings-1.0.0.xsd">XSD file</a></p>
+	<form method="POST" enctype="multipart/form-data" action="/adminUpload">
+		File to upload: <input type="file" name="file" /><input type="submit" value="Upload" />
 	</form>
 </div>
 </div>

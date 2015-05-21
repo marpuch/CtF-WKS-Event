@@ -6,7 +6,6 @@
 	<groupId>nsc.sec.ctf</groupId>
 	<artifactId>victim</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>Victim CtF</name>
 	<description></description>
@@ -52,6 +51,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+	        <groupId>mysql</groupId>
+	        <artifactId>mysql-connector-java</artifactId>
+	    </dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
@@ -73,6 +76,11 @@
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
 			<version>1.52</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>2.0.2</version>
 		</dependency>
 	</dependencies>
 	
