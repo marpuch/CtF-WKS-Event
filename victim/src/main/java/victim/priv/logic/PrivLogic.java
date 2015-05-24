@@ -18,8 +18,15 @@ public class PrivLogic {
 	
 	public PrivBean getText(UserBean userBean) {
 		PrivBean bean = privDao.find(userBean.getLogin());
-		bean.setDecrypted(cryptoLogic.decrypt(bean.getEncrypted(), userBean.getPassword()));
+		String decryptedText = cryptoLogic.decrypt(bean.getEncrypted(), userBean.getPassword());
+		String decryptedFixedNewLine = htmlify(decryptedText);
+		bean.setDecrypted(decryptedFixedNewLine);
 		return bean;
+	}
+
+	private String htmlify(String decryptedText) {
+		String result = decryptedText.replaceAll("\n", "<br/>");
+		return result;
 	}
 
 	// Spring setters

@@ -1,5 +1,6 @@
 package victim.login.logic;
 
+import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -32,8 +33,26 @@ public class LoginLogic {
 			BindingResult bindingResult) {
 		switch (userData.getPassEncryptionMethod()) {
 		// TODO: use java 8 god damn it
-		case "NONE": return handleNoEncryption(bean, userData, bindingResult); 
+		case "NONE": return handleNoEncryption(bean, userData, bindingResult);
+		case "MD5": return handleMd5Hash(bean, userData, bindingResult);
 		default: throw new RuntimeException("Unknown password encryption method");
+		}
+	}
+
+	private UserBean handleMd5Hash(LoginBean bean, UserData userData,
+			BindingResult bindingResult) {
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("MD5", "BC");
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		byte[] hash = md.digest(bean.getPassword().getBytes());
+		if (Arrays.equals(userData.getPassword().getBytes(), hash)) {
+			return data2bean(userData, bean.getPassword());
+		} else {
+			bindingResult.addError(new ObjectError("other.wrongPassword", "Wrong password"));
+			return null;
 		}
 	}
 
