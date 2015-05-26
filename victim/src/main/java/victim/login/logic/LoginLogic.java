@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -13,6 +14,7 @@ import victim.login.bean.LoginBean;
 import victim.login.bean.UserBean;
 import victim.login.bean.UserData;
 import victim.login.data.LoginDao;
+import victim.priv.logic.CryptoUtil;
 
 @Component
 public class LoginLogic {
@@ -32,10 +34,20 @@ public class LoginLogic {
 	private UserBean checkPassword(LoginBean bean, UserData userData,
 			BindingResult bindingResult) {
 		switch (userData.getPassEncryptionMethod()) {
-		// TODO: use java 8 god damn it
 		case "NONE": return handleNoEncryption(bean, userData, bindingResult);
 		case "MD5": return handleMd5Hash(bean, userData, bindingResult);
+		case "BCRYPT": return handleBCryptHash(bean, userData, bindingResult);
 		default: throw new RuntimeException("Unknown password encryption method");
+		}
+	}
+
+	private UserBean handleBCryptHash(LoginBean bean, UserData userData,
+			BindingResult bindingResult) {
+		if (BCrypt.checkpw(bean.getPassword(), userData.getPassword())) {
+			return data2bean(userData, bean.getPassword());
+		} else {
+			bindingResult.addError(new ObjectError("other.wrongPassword", "Wrong password"));
+			return null;
 		}
 	}
 
@@ -48,7 +60,7 @@ public class LoginLogic {
 			throw new RuntimeException(e);
 		}
 		byte[] hash = md.digest(bean.getPassword().getBytes());
-		if (Arrays.equals(userData.getPassword().getBytes(), hash)) {
+		if (Arrays.equals(CryptoUtil.hex2byte(userData.getPassword()), hash)) {
 			return data2bean(userData, bean.getPassword());
 		} else {
 			bindingResult.addError(new ObjectError("other.wrongPassword", "Wrong password"));
