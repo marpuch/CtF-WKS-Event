@@ -37,7 +37,18 @@ public class LoginLogic {
 		case "NONE": return handleNoEncryption(bean, userData, bindingResult);
 		case "MD5": return handleMd5Hash(bean, userData, bindingResult);
 		case "BCRYPT": return handleBCryptHash(bean, userData, bindingResult);
+		case "BCRYPTP": return handleBCryptPepperHash(bean, userData, bindingResult);
 		default: throw new RuntimeException("Unknown password encryption method");
+		}
+	}
+
+	private UserBean handleBCryptPepperHash(LoginBean bean, UserData userData,
+			BindingResult bindingResult) {
+		if (BCrypt.checkpw("db381b8a76e81061d2a3767ccebAADS6a843cae84f7560c6e" + bean.getPassword(), userData.getPassword())) {
+			return data2bean(userData, bean.getPassword());
+		} else {
+			bindingResult.addError(new ObjectError("other.wrongPassword", "Wrong password"));
+			return null;
 		}
 	}
 
