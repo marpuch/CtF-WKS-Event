@@ -34,3 +34,6 @@ insert into private_data (login, text) values (
   'alice', 'db381b8a76e81061d2a3767ccebfd026a843cae84f7560c6e2c122fdd1236a22418f3deadcb8f5e24c84630e4b8ff038fe9515e2674ce7bd9c739346cac2ecd28ddb00d7e5de13e0166511d5ace657e50e4eb4e9715e8f3cc9f33b8fc6675de0d94283f9e89126086a8cba3960b8d1e9d9dd008fc81569159e63920c820b0c83f9134c85fa64743232e8815d41c0fcac');
 insert into private_data (login, text) values (
   'admin', '1089c9018ec83aa2992e8dc0ccdddb413a2c96e7157c5a58825c388a4d87cf6a326da072e2b33993ff1934c122f74a6b2de0765e982cecbdef59004a978410a7617efb5086dbc4af15733cd2b20a981eff3eb82b96d0');
+
+insert into blog_comments (tstmp, name, text) values (
+  '2014-01-01 00:00:00', 'Admin', 'Simple test just to see it work.');

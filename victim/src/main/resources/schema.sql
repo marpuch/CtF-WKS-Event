@@ -18,3 +18,10 @@ CREATE TABLE private_data (
   text VARCHAR(4000) NOT NULL,
   PRIMARY KEY (login))
 ;
+
+CREATE TABLE blog_comments (
+  tstmp TIMESTAMP NOT NULL,
+  name VARCHAR(100),
+  text VARCHAR(4000)
+)
+;
