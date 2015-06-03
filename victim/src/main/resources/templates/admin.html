@@ -59,6 +59,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<form action="/adminTest" method="POST">
 		<input type="submit" value="Throw exception" />
 	</form>
+
+	<form action="/adminDeleteComments" method="POST">
+		<input type="submit" value="Delete all comments" />
+	</form>
+	
 	<p>Upload server configuration as defined in: <a href="/xml/settings-1.0.0.xsd">XSD file</a></p>
 	<form method="POST" enctype="multipart/form-data" action="/adminUpload">
 		File to upload: <input type="file" name="file" /><input type="submit" value="Upload" />

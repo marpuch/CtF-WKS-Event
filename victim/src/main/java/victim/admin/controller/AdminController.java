@@ -8,6 +8,7 @@ import org.jdom2.Document;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.input.sax.XMLReaderJDOMFactory;
 import org.jdom2.input.sax.XMLReaderXSDFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import victim.admin.bean.AdminBean;
+import victim.blog.data.BlogDao;
 
 @Controller
 public class AdminController {
 
+	@Autowired
+	private BlogDao blogDao;
+	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminGet(Model model, HttpSession session) {
 		AdminBean bean = new AdminBean();
@@ -33,6 +38,13 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin", method = RequestMethod.POST)
 	public String adminPost(Model model, HttpSession session) {
+		gatherData(model, session);
+		return "admin";
+	}
+
+	@RequestMapping(value = "/adminDeleteComments", method = RequestMethod.POST)
+	public String adminDeleteComments(Model model, HttpSession session) {
+		blogDao.deleteAll();
 		gatherData(model, session);
 		return "admin";
 	}

@@ -36,7 +36,7 @@ public class ErrorController {
         }
         
         mav.addObject("ip", req.getRemoteAddr());
-        mav.addObject("exception", e);
+        mav.addObject("exception", e.getClass().toString());
         mav.addObject("url", req.getRequestURL());
         mav.setViewName(DEFAULT_ERROR_VIEW);
         return mav;

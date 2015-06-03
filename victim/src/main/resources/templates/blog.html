@@ -106,25 +106,28 @@
 		<div class="responses">
 			<h3>Responses <a href="blog?showComments=100">(see all)</a></h3>
 			
-			<div class="responses-response-fig">
-				<div class="response-fig">
-					<span> </span>
+			<span th:each="comment : ${comments}">
+				<div class="responses-response-fig">
+					<div class="response-fig">
+						<span> </span>
+					</div>
+					<div class="response-fig-text" >
+						<p><label th:text="${{comment.dateAsString}}">12 July 2015 at 10:30am</label></p>
+						<p><span th:text="${{comment.name}}">Admin</span> said:</p>
+						<p class="paragh" th:utext="${{comment.text}}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem.
+							Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.
+							Fusce suscipit varius mi.</p>
+					</div>
+					<div class="clearfix"> </div>
 				</div>
-				<div class="response-fig-text" th:each="comment : ${comments}">
-					<p><label th:text="${{comment.dateAsString}}">12 July 2015 at 10:30am</label></p>
-					<p><span th:text="${{comment.name}}">Admin</span> said:</p>
-					<p class="paragh" th:utext="${{comment.text}}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem.
-						Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.
-						Fusce suscipit varius mi.</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+				<br/>
+			</span>
 		</div>
 		<div class="comments">
 			<h3>leave a comment</h3> 
-			<form>
-				<input type="text" placeholder="Name" required=" "/>
-				<textarea placeholder="Message" required=" "></textarea>
+			<form action="/blog" th:object="${bean}" method="POST">
+				<input type="text" placeholder="Name" th:field="*{name}" />
+				<textarea placeholder="Message" th:field="*{text}"></textarea>
 				<input type="submit" value="send"/>
 			</form>
 		</div>
