@@ -1,19 +1,19 @@
 insert into vict_users (login, pass_encryption_method, password,
   full_name, pass_reminder) values (
   'bob', 'NONE', 'dG9qZXN0aGFzbG8xMjM0', 'Bob the Builder', 'MojeHaslo!')
-; -- tojesthaslo1234
+;
 insert into vict_users (login, pass_encryption_method, password,
   full_name, pass_reminder) values (
   'eve', 'MD5', 'ecde5ab87f0cec1e48e93682d1e96ee9', 'Eve the Evesdropper', 'Can''break me! Don''even try!')
-; -- erteeb
+;
 insert into vict_users (login, pass_encryption_method, password,
   full_name, pass_reminder) values (
   'alice', 'BCRYPT', '$2a$10$FSNTw1SrdsfDmnwtmirnAem6i8SCDHLzl2OtruhQFRqN9WOWl0F1S', 'White Rabbit', 'My favourite pet zomg!1')
-; -- brutu51996
+;
 insert into vict_users (login, pass_encryption_method, password,
   full_name, pass_reminder) values (
   'admin', 'BCRYPTP', '$2a$10$4DXhXK7i00V906KJ9ScmcuZPZSpFk0g/dKHYvLeHfiKaadfPG//Qm', 'Alfa&Omega', 'Lives in the sea')
-; -- octopus
+;
 
 insert into portfolio (mode, text) values (
   'all', 'All we have ever done');

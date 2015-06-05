@@ -1,8 +1,11 @@
-create view v_public_items
-as select * from victim_resource.public_items;
+create view vict_users
+as select * from victim_resource.t_vict_users;
 
-create view vvict_users
-as select * from victim_resource.vict_users;
+create view portfolio
+as select * from victim_resource.t_portfolio;
 
-create view v_portfolio
-as select * from victim_resource.portfolio;
+create view private_data
+as select * from victim_resource.t_private_data;
+
+create view blog_comments
+as select * from victim_resource.t_blog_comments;
